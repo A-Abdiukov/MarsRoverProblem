@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EdyChbZXIklVdd/EZGiEnr5DNDCGRxsncvyz3dYZfDA1/b+OusrdytEEeNFThr38iyoX0gqLaCgHGjG5y04lAQ==",
+  "dgSpecHash": "HoXUP02wGnHAqiiXklY402XLbgocDz2bzKM6BPuPaPMFW5A3GQi20V+AvJykdLB3N/dWl7ho+IXflEPIQ09SuA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\Controller\\Controller.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Ash\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ash\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ash\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -4,5 +4,8 @@
     <Compile Update="InputTaker.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="RoversGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

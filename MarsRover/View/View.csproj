@@ -1,17 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net5.0-windows</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Controller\Controller.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="assets\RoverE.png" />
+		<None Remove="assets\RoverN.png" />
+		<None Remove="assets\RoverS.png" />
+		<None Remove="assets\RoverW.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="assets\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="assets\RoverE.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\RoverN.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\RoverS.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\RoverW.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Controller\Controller.csproj" />
+	</ItemGroup>
 
 </Project>

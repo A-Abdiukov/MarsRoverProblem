@@ -1,5 +1,15 @@
-﻿namespace Model
+﻿using System.Drawing;
+namespace Model
 {
+    public class Square
+    {
+        public Rover piece;
+
+        public Square()
+        {
+
+        }
+    }
     public class Rover
     {
         //VARIABLE DECLARATIONS
@@ -9,6 +19,8 @@
         public CardinalCompassPoints Orientation;
         public string RoverName;
 
+        public Image image;
+
         //CONSTRUCTOR
 
         public Rover(int x, int y, CardinalCompassPoints orientation, string roverName)
@@ -17,9 +29,15 @@
             Y = y;
             Orientation = orientation;
             RoverName = roverName;
+            UpdateImage();
         }
 
         //METHODS
+
+        private void UpdateImage()
+        {
+            image = Image.FromFile("assets\\Rover" + Orientation.ToString() + ".png");
+        }
 
         public bool Spin90DegreesLeft()
         {
@@ -40,6 +58,7 @@
                 default:
                     return false;
             }
+            UpdateImage();
             return true;
         }
 
@@ -62,6 +81,7 @@
                 default:
                     return false;
             }
+            UpdateImage();
             return true;
         }
 
@@ -101,9 +121,6 @@
             }
             return false;
         }
-
-
-
 
         public bool CanTheMoveBeDone(int newX, int newY)
         {
