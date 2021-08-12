@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\Model\\Model.csproj",
+      "projectUniqueName": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\Model\\Model.csproj",
       "projectName": "Model",
-      "projectPath": "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\Model\\Model.csproj",
+      "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\Model\\Model.csproj",
       "packagesPath": "C:\\Users\\Ash\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\Model\\obj\\",
+      "outputPath": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

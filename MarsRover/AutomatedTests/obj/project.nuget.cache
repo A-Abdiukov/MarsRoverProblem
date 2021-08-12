@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zjJ91JBtGr6T6yGfnhTVDazyufKL6KEgvCwPJxToy6oDbTYXpX0jBNHdaKvz+5GNrLDcrwGWILEWsWNSQketaQ==",
+  "dgSpecHash": "D5lD+FWDxkZhFJccAX63P9CC1bNrHKvs0kIQlxuWKUOkNz0nGpkI36Lp19WnXYF3aSPnufREPWHFqGNkKRnE2Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\AutomatedTests\\AutomatedTests.csproj",
+  "projectFilePath": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\AutomatedTests\\AutomatedTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ash\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\Ash\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",

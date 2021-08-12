@@ -34,11 +34,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\Controller\\Controller.csproj",
+      "projectUniqueName": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\Controller\\Controller.csproj",
       "projectName": "Controller",
-      "projectPath": "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\Controller\\Controller.csproj",
+      "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\Controller\\Controller.csproj",
       "packagesPath": "C:\\Users\\Ash\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\Controller\\obj\\",
+      "outputPath": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\Controller\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -61,8 +61,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\Model\\Model.csproj"
+            "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\Model\\Model.csproj"
             }
           }
         }

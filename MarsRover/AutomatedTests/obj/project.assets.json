@@ -4960,11 +4960,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\AutomatedTests\\AutomatedTests.csproj",
+      "projectUniqueName": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\AutomatedTests\\AutomatedTests.csproj",
       "projectName": "AutomatedTests",
-      "projectPath": "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\AutomatedTests\\AutomatedTests.csproj",
+      "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\AutomatedTests\\AutomatedTests.csproj",
       "packagesPath": "C:\\Users\\Ash\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ash\\Desktop\\NASA\\MarsRover\\AutomatedTests\\obj\\",
+      "outputPath": "C:\\Users\\Ash\\Desktop\\GitHub\\MarsRoverProblem\\MarsRover\\AutomatedTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
