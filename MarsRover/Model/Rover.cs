@@ -1,15 +1,19 @@
 ﻿using System.Drawing;
+
 namespace Model
 {
+    /// <summary>
+    /// Square is used to render rovers/ martian plateau in GUI.
+    /// </summary>
     public class Square
     {
         public Rover piece;
-
-        public Square()
-        {
-
-        }
     }
+
+    /// <summary>
+    /// Contains information about the martian rover, it's position, it's compass orientation.
+    /// Contains methods to move the rover.
+    /// </summary>
     public class Rover
     {
         //VARIABLE DECLARATIONS
@@ -17,28 +21,24 @@ namespace Model
         public int X;
         public int Y;
         public CardinalCompassPoints Orientation;
-        public string RoverName;
-
         public Image image;
 
         //CONSTRUCTOR
 
-        public Rover(int x, int y, CardinalCompassPoints orientation, string roverName)
+
+        /// <param name="x">X coordinate of the rover</param>
+        /// <param name="y">Y coordinate of the rover</param>
+        /// <param name="orientation">Which compass orientation the rover is facing towards. Possible values: N, W, S, E.</param>
+        public Rover(int x, int y, CardinalCompassPoints orientation)
         {
             X = x;
             Y = y;
             Orientation = orientation;
-            RoverName = roverName;
-            UpdateImage();
         }
 
         //METHODS
 
-        private void UpdateImage()
-        {
-            image = Image.FromFile("assets\\Rover" + Orientation.ToString() + ".png");
-        }
-
+        /// <returns>True if rover has been successfuly spun left 90 degrees. False if rover failed to spin.</returns>
         public bool Spin90DegreesLeft()
         {
             switch (Orientation)
@@ -58,10 +58,10 @@ namespace Model
                 default:
                     return false;
             }
-            UpdateImage();
             return true;
         }
 
+        /// <returns>True if rover has been successfuly spun right 90 degrees. False if rover failed to spin.</returns>
         public bool Spin90DegreesRight()
         {
             switch (Orientation)
@@ -81,15 +81,14 @@ namespace Model
                 default:
                     return false;
             }
-            UpdateImage();
             return true;
         }
 
+        /// <returns>True if rover has successfully moved. False if rover failed to move.</returns>
         public bool Move()
         {
             int newX;
             int newY;
-
 
             switch (Orientation)
             {
@@ -122,6 +121,7 @@ namespace Model
             return false;
         }
 
+        /// <returns>True if the rover can successfully move. False if rover cannot do the move.</returns>
         public bool CanTheMoveBeDone(int newX, int newY)
         {
             //CHECK THAT THE ROVER WANTS TO MOVE WITHIN BOUNDARIES
@@ -137,7 +137,7 @@ namespace Model
             }
 
             //CHECK WHETHER THERE IS A ROVER OCCUPYING SPACE THAT ANOTHER ROVER TRIES TO MOVE ONTO
-            foreach (Rover item in RoverInfo.listOfAllRovers)
+            foreach (Rover item in RoverInfo.ListOfAllRovers)
             {
                 if (item.X == newX && item.Y == newY)
                 {

@@ -3,8 +3,8 @@ namespace View
 {
     public partial class InputTaker : Form
     {
-        private Controller.Control controller;
-        private RoversGUI GUI;
+        private readonly Controller.Control controller;
+        private readonly RoversGUI GUI;
         public InputTaker()
         {
             InitializeComponent();
@@ -20,7 +20,10 @@ namespace View
             foreach (string item in listOfTestCommands)
             {
                 string output = controller.ProcessUserInput(item);
-                richTextBoxOutput.Text += "\n" + output;
+                if (output != "")
+                {
+                    richTextBoxOutput.Text += "\n" + output;
+                }
             }
             GUI.UpdateAll();
         }
@@ -29,7 +32,11 @@ namespace View
         {
             string input = textBox_UserInput.Text.ToUpper();
             string output = controller.ProcessUserInput(input);
-            richTextBoxOutput.Text += "\n" + output;
+            if (output != "")
+            {
+                richTextBoxOutput.Text += "\n" + output;
+            }
+
             GUI.UpdateAll();
         }
     }

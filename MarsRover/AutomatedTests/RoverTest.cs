@@ -47,7 +47,7 @@ namespace AutomatedTests
             controller.ProcessUserInput(roverXPosition + " " + roverYPosition + " " + roverOrientation);
 
 
-            Rover lastRover = RoverInfo.listOfAllRovers[RoverInfo.listOfAllRovers.Count - 1];
+            Rover lastRover = RoverInfo.ListOfAllRovers[^1];
 
             Assert.IsTrue(
                 lastRover.X == roverXPosition &&
@@ -71,7 +71,7 @@ namespace AutomatedTests
 
             controller.ProcessUserInput("L");
 
-            Rover lastRover = RoverInfo.listOfAllRovers[RoverInfo.listOfAllRovers.Count - 1];
+            Rover lastRover = RoverInfo.ListOfAllRovers[^1];
 
             Assert.IsTrue(
                 lastRover.X == roverXPosition &&
@@ -95,7 +95,7 @@ namespace AutomatedTests
 
             controller.ProcessUserInput("R");
 
-            Rover lastRover = RoverInfo.listOfAllRovers[RoverInfo.listOfAllRovers.Count - 1];
+            Rover lastRover = RoverInfo.ListOfAllRovers[^1];
 
             Assert.IsTrue(
                 lastRover.X == roverXPosition &&
@@ -118,7 +118,7 @@ namespace AutomatedTests
             controller.ProcessUserInput("N");
 
 
-            Rover lastRover = RoverInfo.listOfAllRovers[RoverInfo.listOfAllRovers.Count - 1];
+            Rover lastRover = RoverInfo.ListOfAllRovers[^1];
 
             Assert.IsTrue(
                 lastRover.X == roverXPosition &&

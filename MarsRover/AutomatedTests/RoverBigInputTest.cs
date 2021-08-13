@@ -32,7 +32,10 @@ namespace AutomatedTests
             List<string> output = new();
             foreach (string item in listOfTestCommands)
             {
-                output.Add(controller.ProcessUserInput(item));
+                if (item != "")
+                {
+                    output.Add(controller.ProcessUserInput(item));
+                }
             }
             Assert.IsTrue(output[0] == "1 3 N");
             Assert.IsTrue(output[1] == "5 1 E");
