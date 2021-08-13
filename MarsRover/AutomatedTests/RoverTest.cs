@@ -13,6 +13,7 @@ namespace AutomatedTests
         public void Init()
         {
             controller = new();
+            Model.RoverInfo.ListOfAllRovers.Clear();
         }
 
         /// <summary>
@@ -24,6 +25,7 @@ namespace AutomatedTests
             int upperLimitX = 7;
             int upperLimitY = 8;
 
+            Model.Plateau.UpperRightCoordinates = null;
             controller.ProcessUserInput(upperLimitX + " " + upperLimitY);
 
 
@@ -115,7 +117,7 @@ namespace AutomatedTests
             string roverOrientation = "N";
 
             controller.ProcessUserInput(roverXPosition + " " + roverYPosition + " " + roverOrientation);
-            controller.ProcessUserInput("N");
+            controller.ProcessUserInput("M");
 
 
             Rover lastRover = RoverInfo.ListOfAllRovers[^1];

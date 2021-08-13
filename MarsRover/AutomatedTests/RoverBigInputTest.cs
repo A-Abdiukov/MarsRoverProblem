@@ -12,6 +12,8 @@ namespace AutomatedTests
         public void Init()
         {
             controller = new();
+            Model.Plateau.UpperRightCoordinates = null;
+            Model.RoverInfo.ListOfAllRovers.Clear();
         }
 
         /// <summary>
@@ -30,11 +32,14 @@ namespace AutomatedTests
         {
             string[] listOfTestCommands = new string[] { "5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM" };
             List<string> output = new();
+
             foreach (string item in listOfTestCommands)
             {
-                if (item != "")
+                string toAdd = controller.ProcessUserInput(item);
+
+                if (toAdd != "")
                 {
-                    output.Add(controller.ProcessUserInput(item));
+                    output.Add(toAdd);
                 }
             }
             Assert.IsTrue(output[0] == "1 3 N");

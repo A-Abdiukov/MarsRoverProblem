@@ -43,17 +43,15 @@ namespace Controller
         /// </summary>
         /// <param name="inputArray">Array which contains user input. For example, {1},{2} .</param>
         /// <returns>"" if success; or an error message. </returns>
-        private string SetPlateauDimensions(string[] inputArray)
+        private static string SetPlateauDimensions(string[] inputArray)
         {
             string errorMsg = "Error. The Mars Plateau dimensions were not successfully updated." +
                         "\nPlease try again. Try entering two positive whole numbers, for example \'5 5\'";
             if (inputArray.Length == 2)
             {
-                int x = -1;
-                int y = -1;
 
-                int.TryParse(inputArray[0], out x);
-                int.TryParse(inputArray[1], out y);
+                _ = int.TryParse(inputArray[0], out int x);
+                _ = int.TryParse(inputArray[1], out int y);
 
                 if (x < 1 || y < 1)
                 {
@@ -74,7 +72,7 @@ namespace Controller
         /// </summary>
         /// <param name="line">Raw user input</param>
         /// <returns>The new position of the rover e.g 1 3 N; or an error message.</returns>
-        private string MoveRotateRover(string line)
+        private static string MoveRotateRover(string line)
         {
             if (RoverInfo.ListOfAllRovers.Count > 0)
             {
@@ -111,21 +109,25 @@ namespace Controller
         /// </summary>
         /// <param name="inputArray">Array which contains user input. For example, {1},{2},{N} .</param>
         /// <returns>"" if success; or an error message.</returns>
-        private string PlaceRover(string[] inputArray)
+        private static string PlaceRover(string[] inputArray)
         {
-            int x = -1;
-            int y = -1;
+            string errorMsg = "Error. The Mars Rover was not placed. This might occur if the square is occupied or is outside the plateau boundaries." +
+                    "\nPlease try again. Try entering two positive whole numbers and one of the compass directions, for example \'1 4 N\'.";
 
-            int.TryParse(inputArray[0], out x);
-            int.TryParse(inputArray[1], out y);
+            _ = int.TryParse(inputArray[0], out int x);
+            _ = int.TryParse(inputArray[1], out int y);
 
             if (
-                (x < 1 || y < 1)
+                (x < 0 || y < 0)
                 || Enum.TryParse(inputArray[2], out CardinalCompassPoints orientation) == false
                 )
             {
-                return "Error. The Mars Rover was not placed." +
-                    "\nPlease try again. Try entering two positive whole numbers and one of the compass directions, for example \'1 2 N\'.";
+                return errorMsg;
+            }
+
+            if (Rover.CanTheMoveBeDone(x, y) == false)
+            {
+                return errorMsg;
             }
 
             Rover roverToAdd = new(x, y, orientation);

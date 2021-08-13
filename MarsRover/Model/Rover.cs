@@ -122,7 +122,7 @@ namespace Model
         }
 
         /// <returns>True if the rover can successfully move. False if rover cannot do the move.</returns>
-        public bool CanTheMoveBeDone(int newX, int newY)
+        public static bool CanTheMoveBeDone(int newX, int newY)
         {
             //CHECK THAT THE ROVER WANTS TO MOVE WITHIN BOUNDARIES
 

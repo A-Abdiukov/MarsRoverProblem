@@ -11,7 +11,7 @@ namespace View
         private const int bufferDimension = 1024;
         private readonly int squareDimension;
         private Bitmap buffer;
-        private readonly Brush c1 = Brushes.DarkOrange, c2 = Brushes.DarkGray;
+        private readonly Brush c1 = Brushes.OrangeRed, c2 = Brushes.DarkGray;
         private readonly Square[,] board;
         private readonly int upperLimitX;
         private readonly int upperLimitY;
@@ -63,11 +63,7 @@ namespace View
         //DRAW GRAPHICS CODE
         private void GUIView_Paint(object sender, PaintEventArgs e)
         {
-            int x = this.ClientSize.Width / 8;
-            int y = this.ClientSize.Height / 8;
-            int lineSize = (x + y / 2) / 25;
             e.Graphics.DrawImage(buffer, 0, 0, this.ClientSize.Width, this.ClientSize.Height);
-
         }
 
         public void DrawSquare(Image piece, Point coord)
@@ -111,7 +107,7 @@ namespace View
             {
                 item.image = Image.FromFile("assets\\Rover" + item.Orientation.ToString() + ".png");
 
-                board[item.X, item.Y].piece = item;
+                board[item.X, (upperLimitY - item.Y)].piece = item;
             }
 
             for (int i = 0; i <= upperLimitX; i++)
