@@ -13,11 +13,10 @@ namespace View
         private Bitmap buffer;
         private readonly Brush c1 = Brushes.DarkOrange, c2 = Brushes.DarkGray;
         private readonly Square[,] board;
-
         private readonly int upperLimitX;
         private readonly int upperLimitY;
-        //INITIALISATION CODE
 
+        //INITIALISATION CODE
         public RoversGUI(int upperLimitX, int upperLimitY)
         {
             InitializeComponent();
@@ -25,34 +24,31 @@ namespace View
 
             if (upperLimitX >= upperLimitY)
             {
-                squareDimension = bufferDimension / upperLimitX;
+                squareDimension = bufferDimension / (upperLimitX + 1);
             }
             else
             {
-                squareDimension = bufferDimension / upperLimitY;
+                squareDimension = bufferDimension / (upperLimitY + 1);
             }
 
             this.upperLimitX = upperLimitX;
             this.upperLimitY = upperLimitY;
 
-            board = new Square[upperLimitX, upperLimitY];
+            board = new Square[upperLimitX + 1, upperLimitY + 1];
             InitialiseModel();
             UpdateAll();
         }
 
         private void InitGraphics()
         {
-            this.MaximizeBox = false;
             this.MaximumSize = new Size(dimension, dimension);
             this.MinimumSize = new Size(dimension / 2, dimension / 2);
             this.Size = new Size(dimension, dimension);
             buffer = new Bitmap(bufferDimension, bufferDimension);
-            this.DoubleBuffered = true;
             this.Paint += GUIView_Paint;
             this.Resize += GUIView_Resize;
         }
 
-        //RESPOND TO USER INPUT CODE
 
         //RESIZE CODE
         private void GUIView_Resize(object sender, EventArgs e)
@@ -65,7 +61,6 @@ namespace View
         }
 
         //DRAW GRAPHICS CODE
-
         private void GUIView_Paint(object sender, PaintEventArgs e)
         {
             int x = this.ClientSize.Width / 8;
@@ -88,25 +83,45 @@ namespace View
 
         private void InitialiseModel()
         {
-            for (int i = 0; i < upperLimitX; i++)
+            for (int i = 0; i < upperLimitX + 1; i++)
             {
-                for (int j = 0; j < upperLimitY; j++)
+                for (int j = 0; j < upperLimitY + 1; j++)
                 {
                     board[i, j] = new Square();
                 }
             }
         }
 
+        private void ResetSquares()
+        {
+            for (int i = 0; i < upperLimitX + 1; i++)
+            {
+                for (int j = 0; j < upperLimitY + 1; j++)
+                {
+                    board[i, j].piece = null;
+                }
+            }
+        }
 
+        //INITIALISE UPDATING
         public void UpdateAll()
         {
-            for (int i = 0; i < upperLimitX; i++)
+            ResetSquares();
+            foreach (Rover item in RoverInfo.ListOfAllRovers)
             {
-                for (int j = 0; j < upperLimitY; j++)
+                item.image = Image.FromFile("assets\\Rover" + item.Orientation.ToString() + ".png");
+
+                board[item.X, item.Y].piece = item;
+            }
+
+            for (int i = 0; i <= upperLimitX; i++)
+            {
+                for (int j = 0; j <= upperLimitY; j++)
                 {
                     Update(new Point(i, j));
                 }
             }
+            this.Invalidate();
         }
 
         private void Update(Point coord)
@@ -121,10 +136,23 @@ namespace View
             DrawSquare(pieceImage, coord);
         }
 
-        //private void Place(int col, int row, Rover piece)
-        //{
-        //    board[row, col].piece = piece;
-        //    Update(new Point(row, col));
-        //}
+
+        //CLOSING WINDOW
+        private void RoversGUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var window = MessageBox.Show(
+                "Close the application?",
+                "Are you sure?",
+                MessageBoxButtons.YesNo);
+
+            if (window != DialogResult.Yes)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
+        }
     }
 }

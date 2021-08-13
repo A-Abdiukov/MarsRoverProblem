@@ -29,10 +29,22 @@ namespace View
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // RoversGUI
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "RoversGUI";
+            this.ClientSize = new System.Drawing.Size(120, 0);
+            this.DoubleBuffered = true;
+            this.MaximizeBox = false;
+            this.Name = "RoversGUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Rover Graphics";
+            this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RoversGUI_FormClosing);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

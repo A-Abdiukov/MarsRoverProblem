@@ -44,16 +44,16 @@ namespace View
             this.labelUserHint.Location = new System.Drawing.Point(0, 0);
             this.labelUserHint.Margin = new System.Windows.Forms.Padding(0);
             this.labelUserHint.Name = "labelUserHint";
-            this.labelUserHint.Size = new System.Drawing.Size(474, 25);
+            this.labelUserHint.Size = new System.Drawing.Size(474, 50);
             this.labelUserHint.TabIndex = 0;
-            this.labelUserHint.Text = "Please enter input:";
-            this.labelUserHint.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelUserHint.Text = "Please enter the command:";
+            this.labelUserHint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox_UserInput
             // 
             this.textBox_UserInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox_UserInput.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox_UserInput.Location = new System.Drawing.Point(0, 25);
+            this.textBox_UserInput.Location = new System.Drawing.Point(0, 50);
             this.textBox_UserInput.Name = "textBox_UserInput";
             this.textBox_UserInput.Size = new System.Drawing.Size(474, 34);
             this.textBox_UserInput.TabIndex = 1;
@@ -62,7 +62,7 @@ namespace View
             // 
             this.btnSendUserInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSendUserInput.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSendUserInput.Location = new System.Drawing.Point(0, 59);
+            this.btnSendUserInput.Location = new System.Drawing.Point(0, 84);
             this.btnSendUserInput.Name = "btnSendUserInput";
             this.btnSendUserInput.Size = new System.Drawing.Size(474, 34);
             this.btnSendUserInput.TabIndex = 2;
@@ -74,11 +74,11 @@ namespace View
             // 
             this.buttonRunTest.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonRunTest.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonRunTest.Location = new System.Drawing.Point(0, 93);
+            this.buttonRunTest.Location = new System.Drawing.Point(0, 118);
             this.buttonRunTest.Name = "buttonRunTest";
             this.buttonRunTest.Size = new System.Drawing.Size(474, 34);
             this.buttonRunTest.TabIndex = 3;
-            this.buttonRunTest.Text = "Run tests";
+            this.buttonRunTest.Text = "[Run tests]";
             this.buttonRunTest.UseVisualStyleBackColor = true;
             this.buttonRunTest.Click += new System.EventHandler(this.ButtonRunTest_Click);
             // 
@@ -86,7 +86,7 @@ namespace View
             // 
             this.richTextBoxOutput.Dock = System.Windows.Forms.DockStyle.Top;
             this.richTextBoxOutput.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBoxOutput.Location = new System.Drawing.Point(0, 127);
+            this.richTextBoxOutput.Location = new System.Drawing.Point(0, 152);
             this.richTextBoxOutput.Name = "richTextBoxOutput";
             this.richTextBoxOutput.ReadOnly = true;
             this.richTextBoxOutput.Size = new System.Drawing.Size(474, 243);
@@ -105,6 +105,7 @@ namespace View
             this.Controls.Add(this.labelUserHint);
             this.Name = "InputTaker";
             this.Text = "Mars Rover Control System";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
