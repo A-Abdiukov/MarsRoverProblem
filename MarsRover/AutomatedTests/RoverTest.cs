@@ -1,44 +1,130 @@
-﻿using NUnit.Framework;
+﻿using Controller;
+using Model;
+using NUnit.Framework;
 
 namespace AutomatedTests
 {
     [TestFixture]
     class RoverTest
     {
-        [Test]
-        public void Spin90DegreesLeft()
-        {
-            Assert.IsTrue(false);
-        }
+        Control controller;
 
-        [Test]
-        public void Spin90DegreesRight()
+        [SetUp]
+        public void Init()
         {
-            Assert.IsTrue(false);
-        }
-
-        [Test]
-        public void RoverMove()
-        {
-            Assert.IsTrue(false);
+            controller = new();
         }
 
         /// <summary>
-        /// Test Input:
-
-        ///5 5
-        ///1 2 N
-        ///LMLMLMLMM
-        ///3 3 E
-        ///MMRMMRMRRM
-
-        ///Expected Output:
-        ///1 3 N
-        ///5 1 E
+        /// Test checks whether a plateau can be initialised
         /// </summary>
-        public void NotImplemented()
+        [Test]
+        public void SetUpperLimitsPlateau()
         {
+            int upperLimitX = 7;
+            int upperLimitY = 8;
 
+            controller.ProcessUserInput(upperLimitX + " " + upperLimitY);
+
+
+            Assert.IsTrue(
+                Model.Plateau.UpperRightCoordinates[0, 0] == upperLimitX &&
+                Model.Plateau.UpperRightCoordinates[0, 1] == upperLimitY
+                );
+        }
+
+        /// <summary>
+        /// Test checks whether the rover can be created
+        /// Test checks whether the created rover has correct X, Y positions and correct orientation
+        /// </summary>
+        [Test]
+        public void SetRoverLocation()
+        {
+            int roverXPosition = 1;
+            int roverYPosition = 3;
+            string roverOrientation = "W";
+
+            controller.ProcessUserInput(roverXPosition + " " + roverYPosition + " " + roverOrientation);
+
+
+            Rover lastRover = RoverInfo.listOfAllRovers[RoverInfo.listOfAllRovers.Count - 1];
+
+            Assert.IsTrue(
+                lastRover.X == roverXPosition &&
+                lastRover.Y == roverYPosition &&
+                lastRover.Orientation.ToString() == roverOrientation
+                );
+        }
+
+
+        /// <summary>
+        /// Test checks whether new rover can be created and successfully rotated left.
+        /// </summary>
+        [Test]
+        public void Spin90DegreesLeft()
+        {
+            int roverXPosition = 1;
+            int roverYPosition = 4;
+            string roverOrientation = "W";
+
+            controller.ProcessUserInput(roverXPosition + " " + roverYPosition + " " + roverOrientation);
+
+            controller.ProcessUserInput("L");
+
+            Rover lastRover = RoverInfo.listOfAllRovers[RoverInfo.listOfAllRovers.Count - 1];
+
+            Assert.IsTrue(
+                lastRover.X == roverXPosition &&
+                lastRover.Y == roverYPosition &&
+                lastRover.Orientation.ToString() == "S"
+                );
+
+        }
+
+        /// <summary>
+        /// Test checks whether new rover can be created and successfully rotated right.
+        /// </summary>
+        [Test]
+        public void Spin90DegreesRight()
+        {
+            int roverXPosition = 1;
+            int roverYPosition = 5;
+            string roverOrientation = "W";
+
+            controller.ProcessUserInput(roverXPosition + " " + roverYPosition + " " + roverOrientation);
+
+            controller.ProcessUserInput("R");
+
+            Rover lastRover = RoverInfo.listOfAllRovers[RoverInfo.listOfAllRovers.Count - 1];
+
+            Assert.IsTrue(
+                lastRover.X == roverXPosition &&
+                lastRover.Y == roverYPosition &&
+                lastRover.Orientation.ToString() == "N"
+                );
+        }
+
+        /// <summary>
+        /// Test checks whether a rover can be created and moved
+        /// </summary>
+        [Test]
+        public void RoverMove()
+        {
+            int roverXPosition = 2;
+            int roverYPosition = 2;
+            string roverOrientation = "N";
+
+            controller.ProcessUserInput(roverXPosition + " " + roverYPosition + " " + roverOrientation);
+            controller.ProcessUserInput("N");
+
+
+            Rover lastRover = RoverInfo.listOfAllRovers[RoverInfo.listOfAllRovers.Count - 1];
+
+            Assert.IsTrue(
+                lastRover.X == roverXPosition &&
+                lastRover.Y == (roverYPosition + 1) &&
+                lastRover.Orientation.ToString() == "N"
+                );
         }
     }
 }

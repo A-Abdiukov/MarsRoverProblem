@@ -123,10 +123,10 @@ namespace View
             DrawSquare(pieceImage, coord);
         }
 
-        private void Place(int col, int row, Rover piece)
-        {
-            board[row, col].piece = piece;
-            Update(new Point(row, col));
-        }
+        //private void Place(int col, int row, Rover piece)
+        //{
+        //    board[row, col].piece = piece;
+        //    Update(new Point(row, col));
+        //}
     }
 }
